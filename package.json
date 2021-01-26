@@ -1,0 +1,21 @@
+{
+  "name": "graphql-demo",
+  "version": "1.0.0",
+  "description": "Graph-ql demo with auth",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "demon": "nodemon app.js",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramong1145/demo-graphql.git"
+  },
+  "author": "gallo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramong1145/demo-graphql/issues"
+  },
+  "homepage": "https://github.com/ramong1145/demo-graphql#readme"
+}

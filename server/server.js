@@ -1,3 +1,4 @@
+const { db_name, db_user, db_pass } = require('../config/index.js');
 const express = require('express');
 const models = require('./models');
 const expressGraphQL = require('express-graphql');
@@ -7,7 +8,7 @@ const passport = require('passport');
 const passportConfig = require('./services/auth');
 const MongoStore = require('connect-mongo')(session);
 const schema = require('./schema/schema');
-import { db_name, db_user, db_pass } from '../config/index.js'
+
 
 // Create a new Express application
 const app = express();

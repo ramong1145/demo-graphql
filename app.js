@@ -1,1 +1,5 @@
-console.log("Happy coding!");
+const app = require('./server/server');
+
+app.listen(4000, () => {
+  console.log('Listening');
+});

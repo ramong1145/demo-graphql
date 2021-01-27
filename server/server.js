@@ -1,7 +1,7 @@
-const { db_name, db_user, db_pass } = require('../config/index.js');
+const { mongo_user, mongo_pass, mongo_db } = require('../config/index.js');
 const express = require('express');
 const models = require('./models');
-const expressGraphQL = require('express-graphql');
+const { graphqlHTTP } = require('express-graphql');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
@@ -14,17 +14,17 @@ const schema = require('./schema/schema');
 const app = express();
 
 // Replace with your mongoLab URI
-const MONGO_URI = `mongodb+srv://${db_user}:${db_pass}@graphql-cluster-test.802oy.mongodb.net/${db_name}?retryWrites=true&w=majority`;
+const MONGO_URI = `mongodb+srv://${mongo_user}:${mongo_pass}@graphql-cluster-test.802oy.mongodb.net/${mongo_db}?retryWrites=true&w=majority`;
 
 // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
 mongoose.Promise = global.Promise;
 
 // Connect to the mongoDB instance and log a message
 // on success or failure
-mongoose.connect(MONGO_URI);
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection
-    .once('open', () => console.log('Connected to MongoLab instance.'))
-    .on('error', error => console.log('Error connecting to MongoLab:', error));
+    .once('open', () => console.log('Connected to Mongo Atlas instance.'))
+    .on('error', error => console.log('Error connecting to Mongo Atlas:', error));
 
 // Configures express to use sessions.  This places an encrypted identifier
 // on the users cookie.  When a user makes a request, this middleware examines
@@ -49,7 +49,7 @@ app.use(passport.session());
 
 // Instruct Express to pass on any request made to the '/graphql' route
 // to the GraphQL instance.
-app.use('/graphql', expressGraphQL({
+app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true
 }));

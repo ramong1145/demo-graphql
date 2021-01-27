@@ -7,12 +7,13 @@ const passport = require('passport');
 const passportConfig = require('./services/auth');
 const MongoStore = require('connect-mongo')(session);
 const schema = require('./schema/schema');
+import { db_name, db_user, db_pass } from '../config/index.js'
 
 // Create a new Express application
 const app = express();
 
 // Replace with your mongoLab URI
-const MONGO_URI = '';
+const MONGO_URI = `mongodb+srv://${db_user}:${db_pass}@graphql-cluster-test.802oy.mongodb.net/${db_name}?retryWrites=true&w=majority`;
 
 // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
 mongoose.Promise = global.Promise;
@@ -58,6 +59,7 @@ app.use('/graphql', expressGraphQL({
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config.js');
+
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
 module.exports = app;

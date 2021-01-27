@@ -18,11 +18,18 @@
     "url": "https://github.com/ramong1145/demo-graphql/issues"
   },
   "homepage": "https://github.com/ramong1145/demo-graphql#readme",
+  "browser": { 
+    "fs": false, 
+    "path": false, 
+    "os": false
+  },
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
+    "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
     "axios": "^0.21.1",
     "babel-loader": "^8.2.2",
     "bcrypt-nodejs": "0.0.3",

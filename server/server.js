@@ -1,4 +1,4 @@
-const { mongo_user, mongo_pass, mongo_db } = require('../config/index.js');
+const { mongo_user, mongo_pass, mongo_db } = require('../config');
 const express = require('express');
 const models = require('./models');
 const { graphqlHTTP } = require('express-graphql');

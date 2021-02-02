@@ -12,7 +12,7 @@ class Header extends Component {
     });
   }
 
-  renderCredentialsComponent() {
+  renderAuthOptions() {
     return(
       <div>
         <li>
@@ -40,7 +40,7 @@ class Header extends Component {
             </a>
           </li> 
           : 
-          this.renderCredentialsComponent() }
+          this.renderAuthOptions() }
       </div>
     );
   }

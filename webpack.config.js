@@ -5,7 +5,8 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/' 
   },
   module: {
     rules: [
@@ -21,5 +22,9 @@ module.exports = {
       template: 'client/index.html'
     })
   ],
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true
+  },
   mode: 'development'
 };

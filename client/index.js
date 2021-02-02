@@ -4,9 +4,10 @@ import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, Switch } from 'react-router';
 
 import App from './components/App';
+import LoginForm from './components/LoginForm';
 import history from './utils/history';
 
 const client = new ApolloClient({
@@ -20,12 +21,14 @@ const Root = () => {
   return (
     <ApolloProvider client={client}>
       <Router history={history}>
-        <Route path={"/"} component={App}>
-
-        </Route>
+        <div>
+          <Switch>
+            <Route exact path="/" component={App} />
+            <Route exact path="/login" component={LoginForm} />
+          </Switch>
+        </div>
       </Router>
     </ApolloProvider>
-
   );
 };
 

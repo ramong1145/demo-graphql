@@ -9,6 +9,7 @@ import { Router, Route, Switch } from 'react-router';
 import App from './components/App';
 import LoginForm from './components/LoginForm';
 import history from './utils/history';
+import { BrowserRouter } from 'react-router-dom';
 
 const client = new ApolloClient({
   dataIdFromObject: o => o.id,
@@ -20,14 +21,16 @@ const client = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <Router history={history}>
-        <div>
-          <Switch>
-            <Route exact path="/" component={App} />
-            <Route exact path="/login" component={LoginForm} />
-          </Switch>
-        </div>
-      </Router>
+      <BrowserRouter>
+        <Router history={history}>
+          <div>
+            <Switch>
+              <Route exact path="/" component={App} />
+              <Route exact path="/login" component={LoginForm} />
+            </Switch>
+          </div>
+        </Router>
+      </BrowserRouter>
     </ApolloProvider>
   );
 };

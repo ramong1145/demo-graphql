@@ -17,14 +17,13 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'client/index.html'
     })
   ],
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true
-  },
   mode: 'development'
 };

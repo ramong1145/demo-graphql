@@ -45,8 +45,4 @@ const webpackConfig = require('../webpack.config.js');
 
 app.use(webpackMiddleware(webpack(webpackConfig)));
 
-app.use(express.static(__dirname + '/public'));
-
-console.log(new Date());
-
 module.exports = app;

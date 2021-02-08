@@ -8,6 +8,14 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/' 
   },
+  resolve: {
+    fallback: {
+      "http": require.resolve("stream-http"),
+      "util": require.resolve("util/"),
+      "buffer": false, 
+      "url": false,
+    } 
+  },
   module: {
     rules: [
       {

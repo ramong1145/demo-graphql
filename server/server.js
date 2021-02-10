@@ -11,7 +11,8 @@ const schema = require('./schema/schema');
 
 const app = express();
 
-const MONGO_URI = 
+const MONGO_URI = mongo_connection_string;
+
 mongoose.Promise = global.Promise;
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });

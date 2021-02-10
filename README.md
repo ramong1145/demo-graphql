@@ -4,7 +4,8 @@ demo-grapql is a base project for practicing basic Auth using passport, mongodb 
 Interface is made in React ⚛.
 
 To run the project 🚀:
-```sh
+  - Add .env file and add MONGO_CONNECTION_STRING variable. 
+  - ```sh
 npm install
 npm run start
 ```

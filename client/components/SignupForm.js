@@ -22,7 +22,7 @@ class SignupForm extends Component {
     });
   }
 
-  componentDidUpdate(newProp) {
+  componentWillUpdate(newProp) {
     if(!this.props?.data?.user && newProp?.data?.user) {
       createBrowserHistory.push('/dashboard');
     }

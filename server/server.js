@@ -1,4 +1,4 @@
-const { mongo_user, mongo_pass, mongo_db } = require('../config');
+const { mongo_connection_string } = require('../config');
 const express = require('express');
 const models = require('./models');
 const { graphqlHTTP } = require('express-graphql');
@@ -11,8 +11,7 @@ const schema = require('./schema/schema');
 
 const app = express();
 
-const MONGO_URI = `mongodb+srv://${mongo_user}:${mongo_pass}@graphql-cluster-test.802oy.mongodb.net/${mongo_db}?retryWrites=true&w=majority`;
-
+const MONGO_URI = 
 mongoose.Promise = global.Promise;
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });

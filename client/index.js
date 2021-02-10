@@ -11,6 +11,7 @@ import LoginForm from './components/LoginForm';
 import history from './utils/history';
 import { BrowserRouter } from 'react-router-dom';
 import SignupForm from './components/SignupForm';
+import Dashboard from './components/Dashboard';
 
 const client = new ApolloClient({
   dataIdFromObject: o => o.id,
@@ -29,6 +30,7 @@ const Root = () => {
               <Route exact path="/" component={App} />
               <Route exact path="/login" component={LoginForm} />
               <Route exact path="/signup" component={SignupForm} /> 
+              <Route exact path="/dashboard" component={Dashboard} /> 
             </Switch>
           </div>
         </Router>

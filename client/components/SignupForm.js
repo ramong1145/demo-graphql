@@ -3,6 +3,7 @@ import AuthForm from './AuthForm';
 import { graphql } from 'react-apollo';
 import mutation from '../mutations/signup';
 import query from '../queries/currentUser';
+import { createBrowserHistory } from '../utils/history'
 
 class SignupForm extends Component {
   constructor(props) {
@@ -21,6 +22,12 @@ class SignupForm extends Component {
     });
   }
 
+  componentDidUpdate(newProp) {
+    if(!this.props?.data?.user && newProp?.data?.user) {
+      createBrowserHistory.push('/dashboard');
+    }
+  }
+
   render() {
     return (
       <div>
@@ -34,4 +41,6 @@ class SignupForm extends Component {
   }
 }
 
-export default graphql(mutation)(SignupForm);
+export default graphql(query)(
+  graphql(mutation)(SignupForm)
+);
